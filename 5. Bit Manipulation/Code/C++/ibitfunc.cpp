@@ -20,6 +20,7 @@ int unsetbit(int N, int i)
 {
     if(checkbit(N,i)) return flipbit(N,i); //if ith bit is set then flip otherwise return N;
     return N; // already unset
+    //return N&(~(1<<i)); // other way   100101  unset 2nd bit  1->0    100101 & 111011 = 100001  1<<2  000100 = ~(111011)
 }
 
 int main()
