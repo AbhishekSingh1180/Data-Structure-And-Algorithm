@@ -48,6 +48,16 @@ int solve(int A)
 {
     int T = A;
     int MSB = (int)(log2(T));
+    /**
+     * log2(A) gives MSB 
+        why?
+        to find binary representation we divide number by 2 till 1 comes
+        8 msb 3
+        2 power 3 = 8 
+        2 power x = y   ===   log2(y) = x
+        log2(8) = 3(msb) 
+     * 
+     */
     for(int i=0; i<=MSB; i++) T=flipbit(T,i);
     return T^(1<<(MSB+1));
 }
