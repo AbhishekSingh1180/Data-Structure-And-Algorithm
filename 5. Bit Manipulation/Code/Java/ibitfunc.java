@@ -1,3 +1,4 @@
+import java.lang.Math;
 class ibitfunc
 {
     static Boolean checkbit(int N, int i)
@@ -22,6 +23,15 @@ class ibitfunc
         return N; // already unset
         //return N&(~(1<<i)); // other way   100101  unset 2nd bit  1->0    100101 & 111011 = 100001  1<<2  000100 = ~(111011)
     }
+    static int findMsbbit(int N)
+    {
+        return (int)(Math.log(N)/Math.log(2));
+    }
+
+    static int unsetLSB(int N)
+    {
+        return N&(N-1);
+    }   
     public static void main(String[] args) 
     {
         // i:    8 7 6 5 4 3 2 1 0 - (2^i)
@@ -30,5 +40,7 @@ class ibitfunc
         System.out.println(checkbit(42,2)+" "+checkbit(42,3)); //false true
         System.out.println(setbit(42,0)+" "+unsetbit(42,1)); //43 40
         System.out.println(flipbit(42,1)); // 40
+        System.out.println(findMsbbit(14)); // 3
+        System.out.println(unsetLSB(14)); // 12
     }
 }
