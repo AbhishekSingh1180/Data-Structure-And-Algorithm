@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 bool checkbit(int N, int i)
 {
@@ -22,6 +23,15 @@ int unsetbit(int N, int i)
     return N; // already unset
     //return N&(~(1<<i)); // other way   100101  unset 2nd bit  1->0    100101 & 111011 = 100001  1<<2  000100 = ~(111011)
 }
+int findMsbbit(int N)
+{
+    return (int)log2(N);
+}
+
+int unsetLSB(int N)
+{
+    return N&(N-1);
+}
 
 int main()
 {
@@ -31,4 +41,6 @@ int main()
     cout<<checkbit(42,2)<<" "<<checkbit(42,3)<<endl; //false true
     cout<<setbit(42,0)<<" "<<unsetbit(42,1)<<endl; //43 40
     cout<<flipbit(42,1)<<endl; // 40
+    cout<<findMsbbit(14)<<endl; // 3
+    cout<<unsetLSB(14)<<endl; // 12
 }
