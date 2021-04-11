@@ -7,7 +7,7 @@ class XtimesOneYbit {
     static protected int imposterNum(ArrayList<Integer> num)
     {
         int x = 0;
-        for(int i=0; i<32; i++)
+        for(int i=0; i<=30; i++)
         {
             int setBit = 0;
             for(int j:num)
