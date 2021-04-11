@@ -14,7 +14,7 @@ class XtimesOneYbit {
             {
                 if(((j>>i)&1)==1) setBit++;
             }
-            x += ((setBit%3)==1)?(1<<i):0; // 3K+1   num%3 == 1  
+            x |= ((setBit%3)==1)?(1<<i):0; // 3K+1   num%3 == 1  
         }
         return x;
     }
