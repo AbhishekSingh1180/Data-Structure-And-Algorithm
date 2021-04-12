@@ -1,43 +1,43 @@
-//Print the greycode upto N digit binary Number
+//Print the graycode upto N digit binary Number
 #include <iostream>
 #include <vector>
 #include <cmath>
 #include <string>
 using namespace std;
-void greyCodeDecimal(vector<int> &greyDecimal, int N)
+void grayCodeDecimal(vector<int> &grayDecimal, int N)
 {
-    while((greyDecimal.size())<(1<<N))
+    while((grayDecimal.size())<(1<<N))
     {
-        int sumNewBit = greyDecimal.size(); // new bit add will at (n-1) pos ex. n=3  pos =2  2^2 = 4 size() of previous array;
-        for(int i=greyDecimal.size()-1; i>=0; i--)
+        int sumNewBit = grayDecimal.size(); // new bit add will at (n-1) pos ex. n=3  pos =2  2^2 = 4 size() of previous array;
+        for(int i=grayDecimal.size()-1; i>=0; i--)
         {
-            greyDecimal.push_back(sumNewBit+greyDecimal[i]);
+            grayDecimal.push_back(sumNewBit+grayDecimal[i]);
         }
     }
 }
-void greyCodeBinary(vector<string> &greyBinary, int N)
+void grayCodeBinary(vector<string> &grayBinary, int N)
 {
-    while((greyBinary.size())<(1<<N))
+    while((grayBinary.size())<(1<<N))
     {
-        for(int i=greyBinary.size()-1; i>=0; i--)
+        for(int i=grayBinary.size()-1; i>=0; i--)
         {
-            greyBinary.push_back('1'+greyBinary[i]);
-            greyBinary[i] = '0' + greyBinary[i];
+            grayBinary.push_back('1'+grayBinary[i]);
+            grayBinary[i] = '0' + grayBinary[i];
         }
     }
 }
 int main()
 {
-    vector<string> greyBinary{"0","1"};
-    vector<int> greyDecimal{0,1};
-    greyCodeBinary(greyBinary,3);
-    greyCodeDecimal(greyDecimal,3);
-    for(string i:greyBinary) cout<<i<<endl;
-    for(int i:greyDecimal) cout<<i<<endl;
+    vector<string> grayBinary{"0","1"};
+    vector<int> grayDecimal{0,1};
+    grayCodeBinary(grayBinary,3);
+    grayCodeDecimal(grayDecimal,3);
+    for(string i:grayBinary) cout<<i<<endl;
+    for(int i:grayDecimal) cout<<i<<endl;
 }
 
 /**
- * LOGIC - GREY CODE
+ * LOGIC - gray CODE
  * 
  * N=1     0: [0]
  *         1: [1]

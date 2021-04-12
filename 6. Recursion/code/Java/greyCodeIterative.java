@@ -1,44 +1,44 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-//Print the greycode upto N digit binary Number
-class greyCodeIterative
+//Print the graycode upto N digit binary Number
+class grayCodeIterative
 {
-    static void greyCodeDecimal(ArrayList<Integer> greyDecimal , int N)
+    static void grayCodeDecimal(ArrayList<Integer> grayDecimal , int N)
     {
-        while((greyDecimal.size())<(1<<N))
+        while((grayDecimal.size())<(1<<N))
         {
-            int sumNewBit = greyDecimal.size(); // new bit add will at (n-1) pos ex. n=3  pos =2  2^2 = 4 size() of previous array;
-            for(int i=greyDecimal.size()-1; i>=0; i--)
+            int sumNewBit = grayDecimal.size(); // new bit add will at (n-1) pos ex. n=3  pos =2  2^2 = 4 size() of previous array;
+            for(int i=grayDecimal.size()-1; i>=0; i--)
             {
-                greyDecimal.add(sumNewBit+greyDecimal.get(i));
+                grayDecimal.add(sumNewBit+grayDecimal.get(i));
             }
         }
     }
-    static void greyCodeBinary(ArrayList<String> greyBinary , int N)
+    static void grayCodeBinary(ArrayList<String> grayBinary , int N)
     {
-        while((greyBinary.size())<(1<<N))
+        while((grayBinary.size())<(1<<N))
         {
-            for(int i=greyBinary.size()-1; i>=0; i--)
+            for(int i=grayBinary.size()-1; i>=0; i--)
             {
-                greyBinary.add('1'+greyBinary.get(i));
-                greyBinary.set(i,'0' + greyBinary.get(i));
+                grayBinary.add('1'+grayBinary.get(i));
+                grayBinary.set(i,'0' + grayBinary.get(i));
             }
         }
     }
     public static void main(String[] args) {
-        ArrayList<String> greyBinary = new ArrayList<String>(Arrays.asList("0","1"));
-        ArrayList<Integer> greyDecimal = new ArrayList<Integer>(Arrays.asList(0,1));
-        greyCodeBinary(greyBinary,3);
-        greyCodeDecimal(greyDecimal,3);
-        for(String i:greyBinary) System.out.println(i);
-        for(int i:greyDecimal) System.out.println(i);
+        ArrayList<String> grayBinary = new ArrayList<String>(Arrays.asList("0","1"));
+        ArrayList<Integer> grayDecimal = new ArrayList<Integer>(Arrays.asList(0,1));
+        grayCodeBinary(grayBinary,3);
+        grayCodeDecimal(grayDecimal,3);
+        for(String i:grayBinary) System.out.println(i);
+        for(int i:grayDecimal) System.out.println(i);
     
     }
 } 
 
 /**
- * LOGIC - GREY CODE
+ * LOGIC - gray CODE
  * 
  * N=1     0: [0]
  *         1: [1]
