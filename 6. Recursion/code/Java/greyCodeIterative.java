@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.lang.Math;
 
 //Print the greycode upto N digit binary Number
 class greyCodeIterative
@@ -9,10 +8,10 @@ class greyCodeIterative
     {
         while((greyDecimal.size())<(1<<N))
         {
-            int shift = (int)(Math.log(greyDecimal.size())/Math.log(2));
+            int sumNewBit = greyDecimal.size(); // new bit add will at (n-1) pos ex. n=3  pos =2  2^2 = 4 size() of previous array;
             for(int i=greyDecimal.size()-1; i>=0; i--)
             {
-                greyDecimal.add((1<<shift)+greyDecimal.get(i));
+                greyDecimal.add(sumNewBit+greyDecimal.get(i));
             }
         }
     }

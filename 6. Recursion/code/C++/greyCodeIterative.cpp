@@ -8,10 +8,10 @@ void greyCodeDecimal(vector<int> &greyDecimal, int N)
 {
     while((greyDecimal.size())<(1<<N))
     {
-        int shift = (int)log2(greyDecimal.size());
+        int sumNewBit = greyDecimal.size(); // new bit add will at (n-1) pos ex. n=3  pos =2  2^2 = 4 size() of previous array;
         for(int i=greyDecimal.size()-1; i>=0; i--)
         {
-            greyDecimal.push_back((1<<shift)+greyDecimal[i]);
+            greyDecimal.push_back(sumNewBit+greyDecimal[i]);
         }
     }
 }
