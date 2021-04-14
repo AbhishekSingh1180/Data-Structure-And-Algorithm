@@ -8,27 +8,19 @@ class grayCodeRecursive
     {
         if(N==1) return new ArrayList<Integer>(Arrays.asList(0,1));
         ArrayList<Integer> grayDecimal = grayCodeDecimal(N-1);
-        while((grayDecimal.size())<(1<<N))
-        {
-            int sumNewBit = grayDecimal.size(); // new bit add will at (n-1) pos ex. n=3  pos =2  2^2 = 4 size() of previous array;
-            for(int i=grayDecimal.size()-1; i>=0; i--)
-            {
-                grayDecimal.add(sumNewBit+grayDecimal.get(i));
-            }
-        }
+        int sumNewBit = grayDecimal.size(); // new bit add will at (n-1) pos ex. n=3  pos =2  2^2 = 4 size() of previous array;
+        for(int i=grayDecimal.size()-1; i>=0; i--)
+            grayDecimal.add(sumNewBit+grayDecimal.get(i));
         return grayDecimal;
     }
     static ArrayList<String> grayCodeBinary(int N)
     {
         if(N==1) return new ArrayList<String>(Arrays.asList("0","1"));
         ArrayList<String> grayBinary = grayCodeBinary(N-1);
-        while((grayBinary.size())<(1<<N))
+        for(int i=grayBinary.size()-1; i>=0; i--)
         {
-            for(int i=grayBinary.size()-1; i>=0; i--)
-            {
                 grayBinary.add('1'+grayBinary.get(i));
                 grayBinary.set(i,'0' + grayBinary.get(i));
-            }
         }
         return grayBinary;
     }
