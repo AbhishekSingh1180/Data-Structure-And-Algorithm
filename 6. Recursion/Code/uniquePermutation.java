@@ -39,9 +39,6 @@ class uniquePermutation
                 System.out.print(P.get(i).get(j)+" ");
             }
             System.out.println();
-        }
-
-
-        
+        }        
     }
 }
