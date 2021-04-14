@@ -62,9 +62,9 @@ class Permutations
         {
             for(int i=start; i<=end; i++)
             {
-                swap(A,start,i);
+                swap(A,start,i); //   gives swap and permute rest
                 permutation(A,start+1,end);
-                swap(A,start,i);
+                swap(A,start,i); //   goes for original array so that changes by swap can be reverse for further parts see line no. 2 in logic
             }
         }
     }
@@ -92,16 +92,21 @@ class Permutations
  * 
  *       Use recursion tree
  * 
- * 
- * 
- *                                                     A B C
- *                                                       |
+ *       [] - fixed 
+ *       rest = permute further
+ *                                             INDEX : 0 1 2
+ *                                                     A B C                                                    line 1
+ *                                                       | 
  *                            .--------------------------.--------------------------.   
  *                            |                          |                          |             
- *                         [A] B C                    [B] A C                    [C] B A                  
- *                        SWAP(A,A)                  SWAP(A,B)                  SWAP(A,C)
+ *                         [A] B C                    [B] A C                    [C] B A                        line 2
+ *                        SWAP(0,0)                  SWAP(0,1)                  SWAP(0,2)
  *                            |                          |                          |         
  *                    .---------------.          .---------------.          .--------------.       
- *                 [A B] C         [A C] B    [B A] C         [B C] A    [C B] A        [C A] B   
- *                SWAP(B,B)       SWAP(B,C)  SWAP(A,A)       SWAP(A,C)  SWAP(B,B)      SWAP(B,A)
- */                                 
+ *                 [A B] C         [A C] B    [B A] C         [B C] A    [C B] A        [C A] B                 line 3
+ *                SWAP(1,1)       SWAP(1,2)  SWAP(1,1)       SWAP(1,2)  SWAP(1,1)      SWAP(1,2)
+ * 
+ *                 note from    ABC (Line 1)  TO    [B] A C  (line 2)  we swap
+ *                 and now for    ABC (Line 1)  TO    [C] B A  (line 2)  we need original ABC but we swap to BAC 
+ *                 BAC  swap to  CAB [wrong]   thats why there are two swap to revert changes BAC revert ABC swap CBA  
+ */               
