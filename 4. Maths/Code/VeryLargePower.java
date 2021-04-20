@@ -20,3 +20,13 @@ class VeryLargePower {
         System.out.print(X.solve(35, 68));
     }
 }
+// A^B!%M   M=1000000007
+// fermat litte theorem
+// A^(p-1) == 1modp
+// A^(B-1) = 1modB
+// A^B!= A^(M-1) + A^(M-1) + .... + A^(M-1) + A^R(remainder)
+// A^B!= A^(M-1)*N + A^R
+// A^(M-1)*N = 1 acc. to fermat sir = 1modM = 1
+// A^B!%M = A^R%M
+// B! = (M-1)N + R
+// R = B!%(M-1)

@@ -1,3 +1,5 @@
+// Given a,b & (b-a)<=10^5.
+// find all primes 1<=(a,b)<=10^10.
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -29,17 +31,20 @@ class segmentedSieve
             for(int j=0; j<Primes.size(); j++)
             {
                 long X = Primes.get(j);
-                if((X*X)>B) 
+                if((X*X)>B) // check upto sqrt(b) primes
                     break;
-                long start = (A/X)*X;
+                long start = (A/X)*X; // same as a - a%x + x means first multiple of x 
+                // ex:  a:100  x:3     (100/3)*3  33*3 = 99 
                 if(start==0 || start==X)
-                    start=2*X;
+                    start=2*X; // a:2 x:2 both prime but start should be a+x = 4 
                 else if(start<A)
-                    start+=X;
+                    start+=X; // above 100 3 case start 99 but idealy should be 102 hence 99+3 start+x = 102
                 for(; start<=B; start+=X)
-                    segment[(int)(start-A)]=false;
+                    segment[(int)(start-A)]=false; // mark all multiple false
+                //if(a==0) segment[0]=segment[1]=false; when a=0 but not given in question 
                 if(A==1)
-                    segment[0]=false;
+                    segment[0]=false;  // a:1 special case 1/2 * 2 = 0 start = 0  start = 2*2 = 4 segment[4-a] i.e s[4-1] s[3] i.e 4 marked false but
+                    // s[0] never get false i.e s[0] = false 
             }
             System.out.print("Primes B/W ["+A+","+B+"] : ");
             for(int j=0; j<(B-A+1); j++)
@@ -59,3 +64,4 @@ class segmentedSieve
         
     }
 }
+
