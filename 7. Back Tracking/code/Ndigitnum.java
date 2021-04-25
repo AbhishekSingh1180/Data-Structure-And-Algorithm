@@ -17,6 +17,9 @@ class Ndigitnum
             print(Arr);
             return;
         }
+
+        //decision part
+
         //decision 1 set ith index as 1
         Arr.set(i,1);
         //move forward with decision 1
@@ -26,6 +29,15 @@ class Ndigitnum
         //move forward with decision 2
         printAll(i+1, lastIndex, Arr);
         // no. of call depends upon the no. of choices
+        /**
+         *  since above we only have 1 and 2 available to fill 3 places what if we can use 1-9 all digits
+         *  change decision part by this
+         *  for(int j=1 ; j<=9; j++)
+         *  {
+         *      Arr.set(i,j);
+         *      printAll(i+1,lastIndex,Arr);
+         *  }
+         */
     }
     static void print(ArrayList<Integer> Arr)
     {
