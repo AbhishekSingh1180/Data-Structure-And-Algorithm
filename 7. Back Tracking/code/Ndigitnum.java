@@ -34,6 +34,7 @@ class Ndigitnum
          *  change decision part by this
          *  for(int j=1 ; j<=9; j++)
          *  {
+         *      if(i=0 && j==0) continue; // first posittion can't be zero i.e i=0 and digit 0 is not allowed j=0
          *      Arr.set(i,j);
          *      printAll(i+1,lastIndex,Arr);
          *  }
