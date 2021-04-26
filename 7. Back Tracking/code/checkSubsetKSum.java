@@ -1,4 +1,4 @@
-// Given N array elements check if subset sum==k;
+// Given N array elements check if subset sum==k and Find how many.
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ public class checkSubsetKSum {
 
     checkSubsetKSum(ArrayList<Integer> Arr, int K)
     {
-        System.out.println(isSubsetSumK(0,0,K,Arr));
+        System.out.println(isSubsetSumK(0,0,K,Arr) + " " + numSubsetSumKOptimized(0,0,K,Arr));
     }
     Boolean isSubsetSumK(int start, int sum, int K, ArrayList<Integer> Arr)
     {
@@ -31,8 +31,18 @@ public class checkSubsetKSum {
         if(start == Arr.size()) return sum==K;
         return (isSubsetSumK(start+1, sum+Arr.get(start), K, Arr) || isSubsetSumK(start+1, sum, K, Arr));
     }
+    //NO of subset
+    int numSubsetSumKOptimized(int start, int sum, int K, ArrayList<Integer> Arr)
+    {
+        if(start == Arr.size())
+        {
+            if(sum==K) return 1;
+            return 0;
+        }
+        return (numSubsetSumKOptimized(start+1, sum+Arr.get(start), K, Arr) + numSubsetSumKOptimized(start+1, sum, K, Arr));
+    }
     public static void main(String[] args) {
-        new checkSubsetKSum(new ArrayList<Integer>(Arrays.asList(5,-2,9)),7);
+        new checkSubsetKSum(new ArrayList<Integer>(Arrays.asList(5,-2,9,2)),7);
     }
     
 }
