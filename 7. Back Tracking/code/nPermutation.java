@@ -1,12 +1,16 @@
 //Given N distinct element generate all permutations:
 import java.util.ArrayList;
 import java.util.Arrays;
-
 public class nPermutation {
     ArrayList<ArrayList<Integer>> per = new ArrayList<ArrayList<Integer>>();
     nPermutation(ArrayList<Integer> arr)
     { 
-        printPermutation(0, arr);
+        Integer[] tempArr = new Integer[arr.size()];
+        Arrays.fill(tempArr, -1);
+
+        //ArrayList<Integer> temp = new ArrayList<Integer>(Arrays.asList(tempArr));
+        printPermutation1(0, arr); // no sorting needed
+        //printPermutation2(0, arr,temp); // sort needed
         for(ArrayList<Integer> i : per)
         {
             for(int j : i)
@@ -22,7 +26,8 @@ public class nPermutation {
         arr.set(i, arr.get(j));
         arr.set(j, temp);
     }
-    void printPermutation(int start, ArrayList<Integer> arr)
+    //swap method 
+    void printPermutation1(int start, ArrayList<Integer> arr)
     {
         if(start==arr.size())
         {
@@ -32,8 +37,26 @@ public class nPermutation {
         for(int i = start; i<arr.size(); i++)
         {
             swap(arr, start, i); // swap(0,0) swap(0,1) swap(0,2) ..... 
-            printPermutation(start+1, arr); // move forward
+            printPermutation1(start+1, arr); // move forward
             swap(arr, start, i); // revert decision
+        }
+    }
+    //fill method
+    void printPermutation2(int start, ArrayList<Integer> arr, ArrayList<Integer> temp)
+    {
+        if(start==arr.size())
+        {
+            per.add(new ArrayList<Integer>(temp));
+            return;
+        }
+        for(int i = 0; i<arr.size(); i++)
+        {
+            if(temp.get(i)==-1)
+            {
+                temp.set(i,arr.get(start));
+                printPermutation2(start+1, arr, temp);
+                temp.set(i, -1);
+            }
         }
     }
     public static void main(String[] args) {
