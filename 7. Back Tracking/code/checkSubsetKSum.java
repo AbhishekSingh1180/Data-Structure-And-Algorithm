@@ -26,7 +26,11 @@ public class checkSubsetKSum {
 
         return ( pick || notPick );
     }
-
+    Boolean isSubsetSumKOptimized(int start, int sum, int K, ArrayList<Integer> Arr)
+    {
+        if(start == Arr.size()) return sum==K;
+        return (isSubsetSumK(start+1, sum+Arr.get(start), K, Arr) || isSubsetSumK(start+1, sum, K, Arr));
+    }
     public static void main(String[] args) {
         new checkSubsetKSum(new ArrayList<Integer>(Arrays.asList(5,-2,9)),7);
     }
