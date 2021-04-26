@@ -12,13 +12,14 @@ public class checkSubsetKSum {
     Boolean isSubsetSumK(int start, int sum, int K, ArrayList<Integer> Arr)
     {
         if(start == Arr.size()) return sum==K;
+        //NOTE 1:  *** if(sum==K) return true; this line will further avoid check all case after the subset with sum==k is found.
         Boolean pick, notPick;
 
         sum+=Arr.get(start);  //picking element and adding
         pick = isSubsetSumK(start+1, sum, K, Arr);
         //count++;
         
-        //***** if(pick == true) return true;  this line will avoid check all case after the subset with sum==k is found.
+        // NOTE 2:***** if(pick == true) return true;  this line will avoid check all case after the subset with sum==k is found.
         sum-=Arr.get(start); //not picking element and removing previous call element
         notPick = isSubsetSumK(start+1, sum, K, Arr);
         //count++;
