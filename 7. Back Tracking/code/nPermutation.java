@@ -26,7 +26,7 @@ public class nPermutation {
         arr.set(i, arr.get(j));
         arr.set(j, temp);
     }
-    //swap method 
+    //swap method - already sorted
     void printPermutation1(int start, ArrayList<Integer> arr)
     {
         if(start==arr.size())
@@ -41,7 +41,7 @@ public class nPermutation {
             swap(arr, start, i); // revert decision
         }
     }
-    //fill method
+    //fill method - sort needed
     void printPermutation2(int start, ArrayList<Integer> arr, ArrayList<Integer> temp)
     {
         if(start==arr.size())
