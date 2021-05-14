@@ -39,7 +39,8 @@ class Ndigitnum
          *          Arr.set(i,j);
          *          printAll(i+1, lastIndex, Arr);
          *          continue;
-         *      }// first position can't be zero i.e i=0 and digit 0 is not allowed j=0
+         *      }
+         *      // first position can't be zero i.e i=0 and digit 0 is not allowed j=0
          *      Arr.set(i,j);
          *      printAll(i+1,lastIndex,Arr);
          *  }
