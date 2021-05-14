@@ -44,7 +44,7 @@ class Ndigitnum
          *      Arr.set(i,j);
          *      printAll(i+1,lastIndex,Arr);
          *  }
-         */
+         **/
     }
     static void print(ArrayList<Integer> Arr)
     {
