@@ -1,12 +1,17 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 public class noOfWayStrFormFromSet 
 {
+    HashMap<String,Integer> Dp = new HashMap<String,Integer>(); // Dp storage
+
     noOfWayStrFormFromSet (String str,ArrayList<String> set)
     {
-        int count = strPos(0, str, set);
+        int count = strPosDp(0, str, set);
+        //int count = strPosDp(0, str, set);
         System.out.println(count);
     }
+    //Backtrack approach
     int strPos(int start, String str, ArrayList<String> set)
     {
         if(start==str.length()) return 1;
@@ -20,6 +25,31 @@ public class noOfWayStrFormFromSet
         }   
         return local_count;
     }   
+    //Backtrack + Dynamic(memorization)::Dp
+    int strPosDp(int start, String str, ArrayList<String> set)
+    {
+        if(start==str.length()) return 1;
+        int local_count = 0;
+        for(int i=start; i<str.length(); i++)
+        {
+            if(set.contains(str.substring(start, i+1)))
+            {
+                if(Dp.get(str.substring(i+1))!=null) // check if entry present or not
+                {
+                    local_count += Dp.get(str.substring(i+1)); // get stored value
+                }
+                else
+                {
+                    int cnt = strPosDp(i+1, str, set);
+                    local_count+= cnt;
+                    if(Dp.get(str.substring(i+1))==null) //check if entry already present or not
+                        Dp.put(str.substring(i+1),cnt);
+                }
+                
+            }
+        }   
+        return local_count;
+    }  
     public static void main(String[] args) {
         new noOfWayStrFormFromSet (new String("InterviewBit"),
                    new ArrayList<String>(
