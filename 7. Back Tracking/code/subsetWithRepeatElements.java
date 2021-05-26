@@ -70,8 +70,6 @@ public class subsetWithRepeatElements {
  * [2] 
  * [2 2]
  * 
- * the choice will be we will pick the element at current index and then add subset to hashset at each step itself till last index
- * 
  * 
  *           Array index[val]      i=0        i=1        i=2     end    
  * 
