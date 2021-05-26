@@ -80,15 +80,15 @@ public class subsetWithRepeatElements {
  *                                                           
  *                                  1[1] -----------------------
  *                                                   
- *                                            2[1,2]  X - Not add repeating
+ *                                            2[1,2]  X - Not added repeating
  *                                               
  *                   -----------------------------------------------------                             
  *                                            2[2,2]        
  *                                                  
- *  start(0)c                       2[2] -----------------------    
+ *  start(0)                        2[2] -----------------------    
  *                       
  *                  -----------------------------------------------------    
  * 
- *                                  2[2] X - not add repeating
+ *                                  2[2] X - not added repeating
  * finally sort;
  */
