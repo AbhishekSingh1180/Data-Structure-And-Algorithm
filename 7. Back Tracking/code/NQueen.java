@@ -240,5 +240,4 @@ We will simply place each queen in each row or col. Here we will take row to pla
           -------------------------
 
           Similary next solution
-
 */
