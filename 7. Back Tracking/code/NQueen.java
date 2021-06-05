@@ -238,6 +238,5 @@ We will simply place each queen in each row or col. Here we will take row to pla
           -------------------------
           |  0  |  0  |  1  |  0  |
           -------------------------
-
           Similary next solution
 */
