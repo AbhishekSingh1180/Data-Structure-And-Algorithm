@@ -30,6 +30,7 @@ public class Suduko {
     {
         if(index==81) 
         {
+            System.out.println("Soduko Solved!!");
             for(ArrayList<Integer> i: Board)
             {
                 System.out.println(i);
@@ -65,6 +66,12 @@ public class Suduko {
         Board.add(new ArrayList<Integer>(Arrays.asList(0,0,0,8,2,5,0,6,0)));
         Board.add(new ArrayList<Integer>(Arrays.asList(0,9,0,0,7,0,0,8,1)));
         Board.add(new ArrayList<Integer>(Arrays.asList(0,0,6,1,3,0,0,0,2)));
+        System.out.println("Soduko Board Puzzle");
+        for(ArrayList<Integer> i: Board)
+        {
+            System.out.println(i);
+        }
+        System.out.println();
         new Suduko(Board);
     }
 }
