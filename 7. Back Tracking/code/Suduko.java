@@ -1,6 +1,71 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Suduko {
+    Suduko(ArrayList<ArrayList<Integer>> Board)
+    {
+        solveSuduko(0, Board);   
+    }
+    boolean isValidPos(int i, int j, int num, ArrayList<ArrayList<Integer>> Board)
+    {
+        //check row
+        if(Board.get(i).contains(num)) return false;
+
+        //check col
+        for(int r = 0; r < 9; r++) if(Board.get(i).get(r)==num) return false;
+
+        //check block
+        int x = (i-(i%3)); //blockStartIndex x
+        int y = (j-(j%3)); //blockStartIndex y
+
+        int m = 3;
+        while((m--)>0)
+        {
+            if(Board.get(x).get(y)==num || Board.get(x).get(y+1)==num || Board.get(x).get(y+1)==num) return false;
+            x++;
+        }
+        return true;
+    }
+    Boolean solveSuduko(int index, ArrayList<ArrayList<Integer>> Board)
+    {
+        if(index==81) 
+        {
+            for(ArrayList<Integer> i: Board)
+            {
+                System.out.println(i);
+            }
+            return true;
+        }
+        int i = index/9, j = index%9;
+        if(Board.get(i).get(j)!=0)
+        {
+            return solveSuduko(index+1, Board);   
+        }
+        boolean isSolved = false;
+        for(int num = 1; num <= 9 ; num++)
+        {
+            if(isValidPos(i, j, num, Board))
+            {
+                Board.get(i).set(j, num);
+                isSolved = solveSuduko(index+1, Board);
+                if(isSolved) return true;
+                Board.get(i).set(j, 0);               
+            }
+        }
+        return isSolved; 
+    }
     public static void main(String[] args) {
-        
+        ArrayList<ArrayList<Integer>> Board = new ArrayList<ArrayList<Integer>>();
+        Board.add(new ArrayList<Integer>(Arrays.asList(4,0,0,0,8,6,7,0,0)));
+        Board.add(new ArrayList<Integer>(Arrays.asList(6,2,0,0,1,0,0,9,0)));
+        Board.add(new ArrayList<Integer>(Arrays.asList(0,7,0,3,5,2,0,0,0)));
+        Board.add(new ArrayList<Integer>(Arrays.asList(0,4,0,5,0,0,9,0,7)));
+        Board.add(new ArrayList<Integer>(Arrays.asList(0,0,7,0,0,0,1,0,0)));
+        Board.add(new ArrayList<Integer>(Arrays.asList(1,0,9,0,0,3,0,5,0)));
+        Board.add(new ArrayList<Integer>(Arrays.asList(0,0,0,8,2,5,0,6,0)));
+        Board.add(new ArrayList<Integer>(Arrays.asList(0,9,0,0,7,0,0,8,1)));
+        Board.add(new ArrayList<Integer>(Arrays.asList(0,0,6,1,3,0,0,0,2)));
+        new Suduko(Board);
     }
 }
 /**
