@@ -100,7 +100,5 @@ public class Suduko {
           Now it's a 9 X 9 sudoko having 81 indexes so we will address index by 1D form like  (2,5) in 2D  =  2*9 + 5 = 23 in 1D
           or 23 = (23/9,23%9)  i.e  int index = (index/N , index%N)
 
-          so basic backtracking travel from 1 - 81 an at each index that is empty put any number bw 1 - 9 following sudoko rules.
-
-
+          so basic backtracking travel from 1 - 81 an at each index that is empty put any number bw 1 - 9 following sudoko rules
  */
