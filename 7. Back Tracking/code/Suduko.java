@@ -9,10 +9,10 @@ public class Suduko {
     boolean isValidPos(int i, int j, int num, ArrayList<ArrayList<Integer>> Board)
     {
         //check row
-        if(Board.get(i).contains(num)) return false;
+        for(int r = 0; r < 9; r++) if(Board.get(r).get(j)==num) return false;
 
         //check col
-        for(int r = 0; r < 9; r++) if(Board.get(i).get(r)==num) return false;
+        for(int c = 0; c < 9; c++) if(Board.get(i).get(c)==num) return false;
 
         //check block
         int x = (i-(i%3)); //blockStartIndex x
