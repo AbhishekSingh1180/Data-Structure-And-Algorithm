@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+//import java.util.HashMap;
 
 public class palindromePartition {
     
+    // HashMap<String,Boolean> dp = new HashMap<String,Boolean>();
     ArrayList<ArrayList<String>> palPar = new ArrayList<ArrayList<String>>();
     
     public boolean isPalindrome(String str){
@@ -38,8 +40,31 @@ public class palindromePartition {
             }
         }
     }
+    // public void palindromeParDp(int start, int end, String a, ArrayList<String> par){ //memory optimization
+    //     if(start == end){
+    //         palPar.add(new ArrayList<String>(par));
+    //         return;
+    //     }
+    //     for(int i=start; i<end; i++){
+    //         String temp = a.substring(start, i+1);
+    //         if((dp.get(temp)!=null && dp.get(temp))){
+    //             par.add(temp);
+    //             palindromePar(i+1, end, a, par);
+    //             par.remove(par.size()-1);
+    //         }
+    //         else{
+    //             dp.put(temp,isPalindrome(temp));
+    //             if(dp.get(temp)){
+    //                 par.add(temp);
+    //                 palindromePar(i+1, end, a, par);
+    //                 par.remove(par.size()-1);
+    //             }
+    //         }
+    //     }
+    // }
     public ArrayList<ArrayList<String>> partition(String a) {
-        palindromePar(0, a.length(), a, new ArrayList<String>());
+        palindromePar(0, a.length(), a, new ArrayList<String>()); // no memory optimization
+        //palindromeParDp(0, a.length(), a, new ArrayList<String>()); // memory optimized
         customSort(palPar);
         return palPar;
     }
