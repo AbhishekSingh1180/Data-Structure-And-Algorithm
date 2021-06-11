@@ -58,6 +58,7 @@ public class MinimumSwapToArrangePair{
     }   
 }
 /**
+ *  Arrange pair = (i,j) if( (i+j) == N ) where N is a perfect square
  *  since we have to arrange pair in minimum swap
  *  we have two choices either swap 1st element of current unarranged pair with right element or 2nd element and move
  *  or move to next pair if already arranged
